@@ -1,0 +1,25 @@
+{
+    "name": "cll-syntax-extension",
+    "displayName": "cll-syntax-extension",
+    "description": "Syntax highlighting for cll",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "cll",
+            "aliases": ["cll", "cll"],
+            "extensions": [".cll"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "cll",
+            "scopeName": "source.cll",
+            "path": "./syntaxes/cll.tmLanguage.json"
+        }]
+    }
+}

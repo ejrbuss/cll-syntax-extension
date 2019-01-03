@@ -1,0 +1,68 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "cll",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#literals"
+        },
+        {
+            "include": "#readermacros"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.cll",
+                "match": "\\b(if|while|for|return|quote|quasi-quote|macro|if|do|while|def|fn|let|catch|defn|defmacro|cond|for|assert|defdoc)\\b"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.double.cll",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.cll",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "comments": {
+            "name": "comment.line.cll",
+            "begin": ";",
+            "end": "\n",
+            "patterns": []
+        },
+        "literals": {
+            "patterns": [{
+                "name": "constant.numeric.cll",
+                "match": "[-+]?\\b[0-9]+((\\.[0-9]+([eE][-+]?[0-9]+)?)|((\\.[0-9]+)?[eE][-+]?[0-9]+))?\\b"
+            }, {
+                "name": "constant.language.cll",
+                "match": "\\b(nil)\\b"
+            }, {
+                "name": "constant.numeric.cll",
+                "match": ":\\b([\\w-]+)\\b"
+            }]
+        }, 
+        "readermacros": {
+            "patterns": [{
+                "name": "variable.name.cll",
+                "match": "@\\b([\\w-]+)\\b"
+            }, {
+                "name": "keyword.operator.cll",
+                "match": "~|~~|~'|'"
+            }]
+        }
+    },
+    "scopeName": "source.cll"
+}
