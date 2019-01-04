@@ -22,7 +22,10 @@
         "keywords": {
             "patterns": [{
                 "name": "keyword.control.cll",
-                "match": "(?<=[^-])\\b(if|while|for|return|quote|quasi-quote|macro|if|do|while|def|fn|let|catch|defn|defmacro|cond|for|assert|defdoc)\\b"
+                "match": "(?<=[(){}\\[\\],\\s'\";:])\\b(if|while|for|quote|unquote|unquote-splice|quasi-quote|macro|if|do|while|def|fn|let|ref|list|dict|throw|catch|defn|defmacro|cond|for|assert|defdoc|doc)\\b(?=[(){}\\[\\],\\s'\";:])"
+            },{
+                "name": "keyword.control.cll",
+                "match": "(?<=[(){}\\[\\],\\s'\";:])&\\s"
             }]
         },
         "strings": {
@@ -50,14 +53,14 @@
                 "name": "constant.language.cll",
                 "match": "\\b(nil)\\b"
             }, {
-                "name": "constant.numeric.cll",
-                "match": ":\\b([\\w-]+)\\b"
+                "name": "constant.language.cll",
+                "match": ":\\b([^(){}\\[\\],\\s'\";:]+)"
             }]
         }, 
         "readermacros": {
             "patterns": [{
                 "name": "variable.name.cll",
-                "match": "@\\b([\\w-]+)\\b"
+                "match": "@\\b([^(){}\\[\\],\\s'\";:]+)"
             }, {
                 "name": "keyword.operator.cll",
                 "match": "~|~~|~'|'"
